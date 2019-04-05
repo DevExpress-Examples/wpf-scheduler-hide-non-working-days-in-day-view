@@ -1,7 +1,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [MainWindow.xaml](./CS/NavigateCommandExample/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/NavigateCommandExample/MainWindow.xaml.vb))
+* [MainWindow.xaml](./CS/NavigateCommandExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/NavigateCommandExample/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/NavigateCommandExample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/NavigateCommandExample/MainWindow.xaml.vb))
 * [MainViewModel.cs](./CS/NavigateCommandExample/ViewModel/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/NavigateCommandExample/ViewModel/MainViewModel.vb))
 <!-- default file list end -->
