@@ -1,46 +1,32 @@
-﻿#region #usings
-using DevExpress.Mvvm.POCO;
-using System;
-#endregion #usings
+﻿using System;
 
-namespace SchedulerDragDropExample
-{
-    public class MedicalAppointment
-    {
-        public static MedicalAppointment Create()
-        {
-            return ViewModelSource.Create(() => new MedicalAppointment());
-        }
-        internal static MedicalAppointment Create(DateTime startTime, DateTime endTime, int doctorId, int paymentStateId, string location, string patientName, string note, bool firstVisit)
-        {
-            MedicalAppointment apt = MedicalAppointment.Create();
-            apt.StartTime = startTime;
-            apt.EndTime = endTime;
-            apt.DoctorId = doctorId;
-            apt.PaymentStateId = paymentStateId;
-            apt.Note = note;
-            apt.Location = location;
-            apt.PatientName = patientName;
-            apt.FirstVisit = firstVisit;
-            return apt;
+namespace SchedulerDragDropExample {
+    public class MedicalAppointment {
+        internal MedicalAppointment(DateTime startTime, DateTime endTime, int doctorId, int paymentStateId, string location, string patientName, string note, bool firstVisit) {
+            StartTime = startTime;
+            EndTime = endTime;
+            DoctorId = doctorId;
+            PaymentStateId = paymentStateId;
+            Note = note;
+            Location = location;
+            PatientName = patientName;
+            FirstVisit = firstVisit;
         }
 
-        protected MedicalAppointment() { }
-        public virtual int Id { get; set; }
-        public virtual bool AllDay { get; set; }
-        public virtual DateTime StartTime { get; set; }
-        public virtual DateTime EndTime { get; set; }
-        public virtual string PatientName { get; set; }
-        public virtual string Note { get; set; }
-        public virtual string Subject { get; set; }
-        public virtual int PaymentStateId { get; set; }
-        public virtual int IssueId { get; set; }
-        public virtual int Type { get; set; }
-        public virtual string Location { get; set; }
-        public virtual string RecurrenceInfo { get; set; }
-        public virtual string ReminderInfo { get; set; }
-        public virtual int? DoctorId { get; set; }
-        public virtual bool FirstVisit { get; set; }
+        public int Id { get; set; }
+        public bool AllDay { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public string PatientName { get; set; }
+        public string Note { get; set; }
+        public string Subject { get; set; }
+        public int PaymentStateId { get; set; }
+        public int IssueId { get; set; }
+        public int Type { get; set; }
+        public string Location { get; set; }
+        public string RecurrenceInfo { get; set; }
+        public string ReminderInfo { get; set; }
+        public int? DoctorId { get; set; }
+        public bool FirstVisit { get; set; }
     }
 }
-
