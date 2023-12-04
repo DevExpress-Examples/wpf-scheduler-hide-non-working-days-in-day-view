@@ -3,18 +3,31 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T608137)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
 
-* [MainWindow.xaml](./CS/NavigateCommandExample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/NavigateCommandExample/MainWindow.xaml))
-* [MainWindow.xaml.cs](./CS/NavigateCommandExample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/NavigateCommandExample/MainWindow.xaml.vb))
+# WPF Scheduler - Hide Non-Working Days in the Day View
+
+This example hides non-working days (Saturday and Sunday) from the [Day View](https://docs.devexpress.com/WPF/119204/controls-and-libraries/scheduler/views/day-view) and does not allow users to navigate to these days.
+
+![image](./media/e3efa9a1-e7d4-40dd-a9f2-cf783f9d2e7f.png)
+
+## Implementation Details
+
+1. Specify the [DayView.Days](https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.DayView.Days) property to display a custom set of days.
+
+2. Process the following user navigation types:
+
+   * Left and right arrow keys — Attach the [KeyToCommand](https://docs.devexpress.com/WPF/DevExpress.Mvvm.UI.KeyToCommand) behavior to the Scheduler.
+   * UI navigation — Use the [SchedulerControl.Commands](https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.SchedulerControl.Commands) property to replace default commands executed when a user uses the Scheduler UI for navigation.
+
+3. Handle the [SchedulerControl.VisibleIntervalsChanged](https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.SchedulerControl.VisibleIntervalsChanged) event to adjust visible dates when visible view intervals are changed.
+
+## Files to Review
+
+* [MainWindow.xaml](./CS/NavigateCommandExample/MainWindow.xaml)
 * [MainViewModel.cs](./CS/NavigateCommandExample/ViewModel/MainViewModel.cs) (VB: [MainViewModel.vb](./VB/NavigateCommandExample/ViewModel/MainViewModel.vb))
-<!-- default file list end -->
-# How to hide non-working days in the Day view using custom commands and key handlers
 
+## Documentation
 
-This example demonstrates how to restrict the <a href="http://help.devexpress.com/#WPF/CustomDocument119204">Day View</a> navigation to display seven days, Saturday and Sunday excluded. <br>To accomplish this, the project implements a custom <a href="https://docs.devexpress.com/WPF/113865/mvvm-framework/behaviors/predefined-set/keytocommand">KeyToCommand behavior</a> to handle the left and right arrow keys. Navigation commands execute custom methods defined in ViewModel. Commands are replaced with methods using the <a href="http://help.devexpress.com/#WPF/DevExpressXpfSchedulingSchedulerControl_Commandstopic">SchedulerControl.Commands </a>property and <a href="https://documentation.devexpress.com/WPF/115776/MVVM-Framework/DXBinding/DXCommand">DXCommand</a> binding introduced in the DevExpress MVVM Framework . <br>A custom set of days is assigned to the <a href="https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.DayView.Days">DevExpress.Xpf.Scheduling.DayView.Days</a> property. <br>The project handles the <a href="http://help.devexpress.com/#WPF/DevExpressXpfSchedulingSchedulerControl_VisibleIntervalsChangedtopic">SchedulerControl.VisibleIntervalsChanged</a> event to adjust visible dates if a view's visible intervals are changed with a method other than the navigation commands.<br><br><br><br><img src="https://raw.githubusercontent.com/DevExpress-Examples/how-to-hide-non-working-days-in-the-day-view-using-custom-commands-and-key-handlers-t608137/17.2.5+/media/e3efa9a1-e7d4-40dd-a9f2-cf783f9d2e7f.png"><br><br>
-
-<br/>
-
-
+* [Day View](https://docs.devexpress.com/WPF/119204/controls-and-libraries/scheduler/views/day-view)
+* [Navigation](https://docs.devexpress.com/WPF/119418/controls-and-libraries/scheduler/navigation)
+* [SchedulerControl.VisibleIntervalsChanged](https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.SchedulerControl.VisibleIntervalsChanged)
