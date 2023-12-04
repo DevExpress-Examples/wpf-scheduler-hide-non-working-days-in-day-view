@@ -1,29 +1,26 @@
-#Region "#usings"
 Imports DevExpress.Mvvm
-Imports DevExpress.Mvvm.DataAnnotations
 Imports DevExpress.Xpf.Scheduling
 Imports System
 Imports System.Collections.Generic
 Imports System.Collections.ObjectModel
 Imports System.Linq
 
-#End Region  ' #usings
 Namespace SchedulerDragDropExample
 
-    <POCOViewModel>
     Public Class MainViewModel
+        Inherits ViewModelBase
 
         Const DayViewVisibleDaysCount As Integer = 7
 
-        Public Overridable Property Appointments As ObservableCollection(Of MedicalAppointment)
+        Public Property Appointments As ObservableCollection(Of MedicalAppointment)
 
-        Public Overridable Property Doctors As ObservableCollection(Of Doctor)
+        Public Property Doctors As ObservableCollection(Of Doctor)
 
-        Public Overridable Property PaymentStates As ObservableCollection(Of PaymentState)
+        Public Property PaymentStates As ObservableCollection(Of PaymentState)
 
-        Public Overridable Property SchedulerStart As Date
+        Public Property SchedulerStart As Date
 
-        Protected Sub New()
+        Public Sub New()
             Doctors = New ObservableCollection(Of Doctor)()
             Appointments = New ObservableCollection(Of MedicalAppointment)()
             PaymentStates = New ObservableCollection(Of PaymentState)()
@@ -35,23 +32,23 @@ Namespace SchedulerDragDropExample
 
         Private Sub CreateAppointments()
             Dim rand As Random = New Random(Date.Now.Millisecond)
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddHours(10), endTime:=Date.Now.Date.AddHours(11.5), doctorId:=1, paymentStateId:=1, location:="101", patientName:="Dave Murrel", note:="Take care", firstVisit:=True))
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddDays(2).AddHours(15), endTime:=Date.Now.Date.AddDays(2).AddHours(16.5), doctorId:=1, paymentStateId:=1, location:="101", patientName:="Mike Roller", note:="Schedule next visit soon", firstVisit:=True))
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddDays(1).AddHours(11), endTime:=Date.Now.Date.AddDays(1).AddHours(12), doctorId:=2, paymentStateId:=1, location:="103", patientName:="Bert Parkins", note:=String.Empty, firstVisit:=True))
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddDays(2).AddHours(10), endTime:=Date.Now.Date.AddDays(2).AddHours(12), doctorId:=2, paymentStateId:=0, location:="103", patientName:="Carl Lucas", note:=String.Empty, firstVisit:=False))
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddHours(12), endTime:=Date.Now.Date.AddHours(13.5), doctorId:=3, paymentStateId:=1, location:="104", patientName:="Brad Barnes", note:="Tests are necessary", firstVisit:=False))
-            Appointments.Add(MedicalAppointment.Create(startTime:=Date.Now.Date.AddDays(1).AddHours(14), endTime:=Date.Now.Date.AddDays(1).AddHours(15), doctorId:=3, paymentStateId:=1, location:="104", patientName:="Richard Fisher", note:=String.Empty, firstVisit:=True))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddHours(10), endTime:=Date.Now.Date.AddHours(11.5), doctorId:=1, paymentStateId:=1, location:="101", patientName:="Dave Murrel", note:="Take care", firstVisit:=True))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddDays(2).AddHours(15), endTime:=Date.Now.Date.AddDays(2).AddHours(16.5), doctorId:=1, paymentStateId:=1, location:="101", patientName:="Mike Roller", note:="Schedule next visit soon", firstVisit:=True))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddDays(1).AddHours(11), endTime:=Date.Now.Date.AddDays(1).AddHours(12), doctorId:=2, paymentStateId:=1, location:="103", patientName:="Bert Parkins", note:=String.Empty, firstVisit:=True))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddDays(2).AddHours(10), endTime:=Date.Now.Date.AddDays(2).AddHours(12), doctorId:=2, paymentStateId:=0, location:="103", patientName:="Carl Lucas", note:=String.Empty, firstVisit:=False))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddHours(12), endTime:=Date.Now.Date.AddHours(13.5), doctorId:=3, paymentStateId:=1, location:="104", patientName:="Brad Barnes", note:="Tests are necessary", firstVisit:=False))
+            Appointments.Add(New MedicalAppointment(startTime:=Date.Now.Date.AddDays(1).AddHours(14), endTime:=Date.Now.Date.AddDays(1).AddHours(15), doctorId:=3, paymentStateId:=1, location:="104", patientName:="Richard Fisher", note:=String.Empty, firstVisit:=True))
         End Sub
 
         Private Sub CreateDoctors()
-            Doctors.Add(Doctor.Create(id:=1, name:="Stomatologist"))
-            Doctors.Add(Doctor.Create(id:=2, name:="Ophthalmologist"))
-            Doctors.Add(Doctor.Create(id:=3, name:="Surgeon"))
+            Doctors.Add(New Doctor(id:=1, name:="Stomatologist"))
+            Doctors.Add(New Doctor(id:=2, name:="Ophthalmologist"))
+            Doctors.Add(New Doctor(id:=3, name:="Surgeon"))
         End Sub
 
         Private Sub CreatePaymentStates()
-            PaymentStates.Add(PaymentState.Create(id:=0, caption:="Unpaid", color:="Tomato"))
-            PaymentStates.Add(PaymentState.Create(id:=1, caption:="Paid", color:="LightGreen"))
+            PaymentStates.Add(New PaymentState(id:=0, caption:="Unpaid", color:="Tomato"))
+            PaymentStates.Add(New PaymentState(id:=1, caption:="Paid", color:="LightGreen"))
         End Sub
 
 #Region "#MyMove"
@@ -165,5 +162,12 @@ Namespace SchedulerDragDropExample
 
             Return list
         End Function
+
+        Public Sub InitDays(ByVal scheduler As SchedulerControl)
+            Dim myView As DayView = TryCast(scheduler.ActiveView, DayView)
+            If myView IsNot Nothing Then
+                myView.Days = GetDays(scheduler.Start)
+            End If
+        End Sub
     End Class
 End Namespace
