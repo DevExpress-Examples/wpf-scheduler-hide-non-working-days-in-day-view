@@ -2,6 +2,7 @@
 ![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/128655992/22.2.2%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T608137)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
+[![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
 # WPF Scheduler - Hide Non-Working Days in the Day View
@@ -31,3 +32,10 @@ This example hides non-working days (Saturday and Sunday) from the [Day View](ht
 * [Day View](https://docs.devexpress.com/WPF/119204/controls-and-libraries/scheduler/views/day-view)
 * [Navigation](https://docs.devexpress.com/WPF/119418/controls-and-libraries/scheduler/navigation)
 * [SchedulerControl.VisibleIntervalsChanged](https://docs.devexpress.com/WPF/DevExpress.Xpf.Scheduling.SchedulerControl.VisibleIntervalsChanged)
+<!-- feedback -->
+## Does this example address your development requirements/objectives?
+
+[<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-scheduler-hide-non-working-days-in-day-view&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-scheduler-hide-non-working-days-in-day-view&~~~was_helpful=no)
+
+(you will be redirected to DevExpress.com to submit your response)
+<!-- feedback end -->
